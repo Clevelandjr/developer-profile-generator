@@ -6,7 +6,7 @@ function writeToFile(fileName, data) {
  
 }
 
-function init() {
+async function init() {
 
 init();
 }
