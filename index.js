@@ -1,11 +1,13 @@
 var inquirer = require("inquirer");
 var fs =require('fs');
 var generateHTML = require("./generateHTML");
+var pdf = require("pdf")
 
-inquirer.prompt([
+inquirer
+    .prompt([
     {
         type: "input",
-        name: "name",
+        name: "username",
         message: "What is you github username?"
     },
     {
@@ -22,13 +24,24 @@ inquirer.prompt([
         "brown"
     ]
     }
-])
+]).then(function({ username }) {
+    const queryUrl = `https://api.github.com/users/${username}`;
+
+    axios.get(queryUrl).then(function(response) {
+        console.log(response) {
+
+        });
+
+        const gitHubInfo = info.join("\n");
+
+        fs.writeFile("github.pdf", gitHubInfo, function(err)
+    }
 
 const questions = [
   
 ];
 
-function writeToFile(fileName, data) {
+function writeToFile(github.pdf, data) {
  
 }
 
