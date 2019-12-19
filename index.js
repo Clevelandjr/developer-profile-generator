@@ -1,11 +1,13 @@
-var inquirer = require("inquirer");
-var fs =require('fs');
-var generateHTML = require("./generateHTML");
-var pdf = require("pdf")
+const inquirer = require("inquirer");
+const fs =require('fs');
+const generateHTML = require("./generateHTML");
+const pdf = require("pdf")
 var myDoc = new pdf;
+const axios = require("axios")
+const writeFileAsync = util.promisfy(fs.writeFile);
 
-inquirer
-    .prompt([
+function promptUser() {
+ return inquirer.prompt([
     {
         type: "input",
         name: "username",
@@ -20,33 +22,42 @@ inquirer
         "blue",
         "pink",
         "orange",
-        "purple"
+        "purple",
         "red",
         "brown"
     ]
-    }
-]).then(function({ username }) {
+    }]);
+}
+.then(function({ username }) {
     const queryUrl = `https://api.github.com/users/${username}`;
 
     axios.get(queryUrl).then(function(response) {
-        console.log(response) {
+        console.log(response.data) {
 
-        });
+        };
 
         const gitHubInfo = info.join("\n");
 
         fs.writeFile("github.pdf", gitHubInfo, function(err)
     }
 
-const questions = [
-  
-];
-
 function writeToFile(github.pdf, data) {
  
 }
 
 async function init() {
+    console.log("hi")
+try {
+    const answers = await promptUser();
+
+    const html = generateHTML(data);
+
+    await writeFileAsync("index.html", html);
+
+    console.log("Successfully wrote to indexedDB.html");
+}   catch(err) {
+    console.log(err);
+}
+};
 
 init();
-}
