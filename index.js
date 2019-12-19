@@ -2,6 +2,7 @@ var inquirer = require("inquirer");
 var fs =require('fs');
 var generateHTML = require("./generateHTML");
 var pdf = require("pdf")
+var myDoc = new pdf;
 
 inquirer
     .prompt([
